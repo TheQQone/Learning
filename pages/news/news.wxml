@@ -1,0 +1,51 @@
+<!--news.wxml-->
+<view class="container">
+  <view class="category-tabs">
+    <scroll-view scroll-x="true" class="tabs-scroll">
+      <view class="tabs-content">
+        <view 
+          class="tab-item {{currentCategory === index ? 'active' : ''}}" 
+          wx:for="{{categories}}" 
+          wx:key="index"
+          data-index="{{index}}"
+          bindtap="switchCategory">
+          <text>{{item}}</text>
+          <view class="tab-indicator" wx:if="{{currentCategory === index}}"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="news-list">
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    
+    <view wx:elif="{{newsList.length === 0}}" class="empty-container">
+      <view class="empty-image-placeholder"></view>
+      <text class="empty-text">暂无内容</text>
+    </view>
+    
+    <view wx:else>
+      <view 
+        class="news-item" 
+        wx:for="{{newsList}}" 
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="viewNewsDetail">
+        <view class="news-content">
+          <view class="news-title">{{item.title}}</view>
+          <view class="news-info">
+            <text class="news-source">{{item.source}}</text>
+            <text class="news-time">{{item.publishTime}}</text>
+          </view>
+          <text class="news-summary">{{item.summary}}</text>
+        </view>
+        <view class="news-image">
+          <view class="news-image-placeholder"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

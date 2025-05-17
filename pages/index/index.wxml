@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="user-info-section">
+      <block wx:if="{{canIUseOpenData}}">
+        <view class="userinfo">
+          <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+          <open-data type="userNickName" class="userinfo-nickname"></open-data>
+        </view>
+      </block>
+      <block wx:elif="{{!hasUserInfo}}">
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="login-btn"> 登录 </button>
+        <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login-btn"> 登录 </button>
+        <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+      </block>
+      <block wx:else>
+        <view class="userinfo">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="welcome-text">
+      <text class="welcome-title">欢迎使用AI智能助手</text>
+      <text class="welcome-subtitle">人工智能为您提供全方位服务</text>
+    </view>
+  </view>
+
+  <view class="features-section">
+    <text class="section-title">功能服务</text>
+    <view class="features-grid">
+      <view class="feature-card" wx:for="{{features}}" wx:key="id" data-feature="{{item}}" bindtap="navigateToFeature">
+        <view class="feature-icon" style="background-color: {{item.iconColor}}">
+          <text class="feature-icon-text">{{item.name[0]}}</text>
+        </view>
+        <view class="feature-info">
+          <text class="feature-name">{{item.name}}</text>
+          <text class="feature-description">{{item.description}}</text>
+        </view>
+        <view class="feature-arrow">
+          <text class="arrow-icon">></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="about-section">
+    <text class="about-title">关于AI智能助手</text>
+    <text class="about-content">AI智能助手基于先进的人工智能技术，为用户提供图像识别、资讯推送等服务，让您的生活更加便捷智能。</text>
+  </view>
+</view> 

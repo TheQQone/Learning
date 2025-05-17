@@ -1,0 +1,267 @@
+/**imageAnalysis.wxss**/
+.container {
+  padding: 30rpx;
+}
+
+.page-header {
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+}
+
+.image-container {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 400rpx;
+  background-color: #f9f9f9;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2rpx dashed #ccc;
+}
+
+.placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.upload-icon-placeholder {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  background-color: #ddd;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.upload-icon-placeholder:before,
+.upload-icon-placeholder:after {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+}
+
+.upload-icon-placeholder:before {
+  width: 40rpx;
+  height: 6rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.upload-icon-placeholder:after {
+  width: 6rpx;
+  height: 40rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.placeholder-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.selected-image {
+  width: 100%;
+}
+
+.selected-image image {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 12rpx;
+}
+
+.image-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0 10rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  padding: 15rpx 0;
+}
+
+.reset-btn {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.analyze-btn {
+  background-color: #3B7CF7;
+  color: #fff;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx 0;
+}
+
+.loading-spinner {
+  width: 80rpx;
+  height: 80rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #3B7CF7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.analysis-results {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.result-header {
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.result-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.result-section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.section-content {
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+
+.description {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #e1f0ff;
+  color: #3B7CF7;
+  padding: 10rpx 20rpx;
+  border-radius: 40rpx;
+  margin: 0 15rpx 15rpx 0;
+  font-size: 26rpx;
+}
+
+.objects {
+  display: flex;
+  flex-direction: column;
+}
+
+.object-item {
+  margin-bottom: 15rpx;
+}
+
+.object-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.object-name {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.object-confidence {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.confidence-bar {
+  height: 12rpx;
+  background-color: #eee;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  background-color: #3B7CF7;
+  border-radius: 6rpx;
+}
+
+.colors {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-box {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.color-percentage {
+  font-size: 22rpx;
+  color: #666;
+} 

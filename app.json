@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/imageAnalysis/imageAnalysis",
+    "pages/news/news",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3B7CF7",
+    "navigationBarTitleText": "AI智能助手",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3B7CF7",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/imageAnalysis/imageAnalysis",
+        "text": "图像"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "资讯"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+} 

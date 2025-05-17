@@ -1,0 +1,75 @@
+<!--imageAnalysis.wxml-->
+<view class="container">
+  <view class="page-header">
+    <text class="title">AI图像分析</text>
+    <text class="subtitle">上传图片，让AI帮你分析识别</text>
+  </view>
+
+  <view class="image-container">
+    <view class="image-placeholder" wx:if="{{!imageSrc}}" bindtap="chooseImage">
+      <view class="placeholder-content">
+        <view class="upload-icon-placeholder"></view>
+        <text class="placeholder-text">点击上传图片</text>
+      </view>
+    </view>
+    <view class="selected-image" wx:else>
+      <image src="{{imageSrc}}" mode="aspectFit" bindtap="previewImage"></image>
+      <view class="image-actions">
+        <button class="action-btn reset-btn" bindtap="resetImage">重新选择</button>
+        <button class="action-btn analyze-btn" bindtap="analyzeImage" wx:if="{{!isAnalyzing && !showResult}}">分析图片</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading-container" wx:if="{{isAnalyzing}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">正在分析图片...</text>
+  </view>
+
+  <view class="analysis-results" wx:if="{{showResult && analysisResult}}">
+    <view class="result-header">
+      <text class="result-title">分析结果</text>
+    </view>
+
+    <view class="result-section">
+      <text class="section-title">图像描述</text>
+      <view class="section-content description">
+        <text>{{analysisResult.description}}</text>
+      </view>
+    </view>
+
+    <view class="result-section">
+      <text class="section-title">标签</text>
+      <view class="section-content tags">
+        <view class="tag" wx:for="{{analysisResult.tags}}" wx:key="index">
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="result-section">
+      <text class="section-title">识别物体</text>
+      <view class="section-content objects">
+        <view class="object-item" wx:for="{{analysisResult.objects}}" wx:key="name">
+          <view class="object-info">
+            <text class="object-name">{{item.name}}</text>
+            <text class="object-confidence">{{item.confidencePercent}}%</text>
+          </view>
+          <view class="confidence-bar">
+            <view class="confidence-fill" style="width: {{item.confidence * 100}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="result-section">
+      <text class="section-title">主要颜色</text>
+      <view class="section-content colors">
+        <view class="color-item" wx:for="{{analysisResult.dominant_colors}}" wx:key="index">
+          <view class="color-box" style="background-color: {{item.color}}"></view>
+          <text class="color-percentage">{{item.percentageValue}}%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

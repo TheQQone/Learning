@@ -1,0 +1,81 @@
+<!--profile.wxml-->
+<view class="container">
+  <view class="profile-header">
+    <view class="user-info">
+      <block wx:if="{{canIUseOpenData}}">
+        <view class="avatar-wrapper">
+          <open-data type="userAvatarUrl" class="avatar"></open-data>
+        </view>
+        <view class="name-wrapper">
+          <open-data type="userNickName" class="name"></open-data>
+          <text class="welcome">欢迎使用AI智能助手</text>
+        </view>
+      </block>
+      <block wx:elif="{{!hasUserInfo}}">
+        <view class="avatar-wrapper">
+          <view class="avatar default-avatar"></view>
+        </view>
+        <view class="name-wrapper">
+          <text class="name">未登录</text>
+          <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="login-btn">点击登录</button>
+          <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login-btn">点击登录</button>
+          <view wx:else>请使用1.4.4及以上版本基础库</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="avatar-wrapper">
+          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class="name-wrapper">
+          <text class="name">{{userInfo.nickName}}</text>
+          <text class="welcome">欢迎使用AI智能助手</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="profile-content">
+    <view class="function-section section">
+      <text class="section-title">功能与服务</text>
+      <view class="function-list">
+        <view
+          class="function-item"
+          wx:for="{{functionItems}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="handleFunctionTap"
+        >
+          <view class="function-icon" style="background-color: {{item.color}}">
+            <text class="icon-placeholder">{{item.name[0]}}</text>
+          </view>
+          <text class="function-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="about-section section">
+      <text class="section-title">关于</text>
+      <view class="about-list">
+        <view
+          class="about-item"
+          wx:for="{{aboutItems}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="handleAboutTap"
+        >
+          <view class="about-left">
+            <view class="about-icon-placeholder">{{item.name[0]}}</view>
+            <text class="about-name">{{item.name}}</text>
+          </view>
+          <view class="about-right">
+            <text class="arrow">></text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="version-info">
+      <text>{{versionInfo}}</text>
+    </view>
+  </view>
+</view> 

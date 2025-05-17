@@ -1,0 +1,9 @@
+{
+  "name": "wechat-ai-assistant",
+  "version": "1.0.0",
+  "description": "AI智能助手微信小程序",
+  "main": "app.js",
+  "dependencies": {
+    "@babel/runtime": "^7.22.5"
+  }
+} 
